@@ -40,6 +40,24 @@ def select_all_movies(conn):
 
     print(movies)
 
+def select_all_schedules(conn):
+    """
+    Query all rows in the tasks table
+    :param conn: the Connection object
+    :return:
+    """
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM schedules")
+
+    rows = cur.fetchall()
+
+    movies = []
+    for row in rows:
+        print(row[1])
+        movie.append(movie(row))
+
+    print(movies)
+
 def main():
     database = "../pythonsqlite.db"
 
@@ -75,7 +93,7 @@ def main():
         create_table(conn, sql_create_schedule_table)
         # create reservations table
         create_table(conn, sql_create_reservations_table)
-        select_all_movies(conn)
+        select_all_schedules(conn)
     else:
         print("Error! cannot create the database connection.")
 
