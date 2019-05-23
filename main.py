@@ -4,8 +4,8 @@ operations = ["--imp", "--exp", "--reserve", "--show", "--report"]
 descriptions = ["--imp <json|url> <filename>            | Import specified file|URL into movie DB", 
                 "--exp <json> <filename>                | Export from movie DB to a file", 
                 "--reserve <movie> <amount>             | Reserve tickets", 
-                "--show <movie|all>                     | Show ticket reservations", 
-                "--report <report|all> [export-file]    | Print reports or export to a file"]
+                "--show <movie|list>                    | Show ticket reservations", 
+                "--report <report|list> [export-file]   | Print reports or export to a file"]
 file_dir = "backup/"
 separator = ';'
 
