@@ -1,7 +1,20 @@
-import json, requests,sqlite3
-from db import SQLite
+import json, requests, sqlite3
+import sys
 
-connection = sqlite3.connect('../pythonsqlite.db')
+sys.path.append("C:\Source\Python\Advanced\movie-theater")
+
+from db.SQLite import *
+
+def dict_factory(cursor, row):
+    d = {}
+    for idx, col in enumerate(cursor.description):
+        d[col[0]] = row[idx]
+    return d
+
+
+
+connection = sqlite3.connect('pythonsqlite.db')
+connection.row_factory = dict_factory
 cursor = connection.cursor()
 
 movie_ids=["tt6139732", "tt1489887", "tt7752126"]
@@ -48,6 +61,8 @@ def main():
     cursor.execute(select)
     results = cursor.fetchall()
     print(results)
-
+    
+    select_all_movies(connection)
+    
 
 main()
