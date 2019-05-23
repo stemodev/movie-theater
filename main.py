@@ -1,5 +1,7 @@
 import os, sys
 
+sys.path.append("C:\Source\Python\Advanced\movie-theater")
+
 operations = ["--imp", "--exp", "--reserve", "--show", "--report"]
 descriptions = ["--imp <json|url> <filename>            | Import specified file|URL into movie DB", 
                 "--exp <json> <filename>                | Export from movie DB to a file", 

@@ -1,5 +1,9 @@
 import sqlite3
-from models import movie
+import sys
+
+sys.path.append("C:\Source\Python\Advanced\movie-theater")
+
+from models.movie import *
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database
@@ -9,8 +13,6 @@ def create_connection(db_file):
     """
     conn = sqlite3.connect(db_file)
     return conn
-
-    return None
 
 def create_table(conn, create_table_sql):
     """ create a table from the create_table_sql statement
@@ -36,7 +38,7 @@ def select_all_movies(conn):
     movies = []
     for row in rows:
         print(row)
-        movie.append(movie(row))
+        movies.append(movie(row))
 
     print(movies)
 
@@ -59,7 +61,7 @@ def select_all_schedules(conn):
     print(movies)
 
 def main():
-    database = "../pythonsqlite.db"
+    database = "pythonsqlite.db"
 
     sql_create_movies_table = """ CREATE TABLE IF NOT EXISTS movies (
                                         id integer PRIMARY KEY,
