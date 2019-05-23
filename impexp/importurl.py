@@ -47,7 +47,7 @@ def main():
     if(len(movie_ids) > 0):
         import_db()
 
-    select = '''SELECT * from movies'''
+    select = '''SELECT id,title from movies'''
     cursor.execute(select)
     results = cursor.fetchall()
     print(results)
