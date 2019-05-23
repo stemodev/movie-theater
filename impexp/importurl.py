@@ -1,4 +1,5 @@
 import json, requests,sqlite3
+from db import SQLite
 
 connection = sqlite3.connect('../pythonsqlite.db')
 cursor = connection.cursor()
@@ -12,7 +13,6 @@ headers = {'user-agent':'Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrai
 response = requests.get(url, headers)
 python_dictionary_values = json.loads(response.text)
 
-
 def select_movies():
     select_movie = True
     while select_movie:
@@ -25,9 +25,6 @@ def select_movies():
 def import_db():
     print('Creating movie db ...')
     get_data_from_imdb()
-    
-
-
 
 def get_data_from_imdb():
     data=[]

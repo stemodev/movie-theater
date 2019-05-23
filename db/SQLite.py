@@ -1,4 +1,5 @@
 import sqlite3
+from models import movie
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database
@@ -32,8 +33,12 @@ def select_all_movies(conn):
 
     rows = cur.fetchall()
 
+    movies = []
     for row in rows:
         print(row)
+        movie.append(movie(row))
+
+    print(movies)
 
 def main():
     database = "../pythonsqlite.db"
