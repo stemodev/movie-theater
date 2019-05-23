@@ -11,8 +11,6 @@ def dict_factory(cursor, row):
         d[col[0]] = row[idx]
     return d
 
-
-
 connection = sqlite3.connect('pythonsqlite.db')
 connection.row_factory = dict_factory
 cursor = connection.cursor()

@@ -1,5 +1,7 @@
-class movie:
-    def __init__(self, dictionary):
-        for key in dictionary:
-            #print(key)
-            setattr(self, key, dictionary[key])
+class Movie:
+    def __init__(self, id,title,description,genre):
+        self.id = id
+        self.title = title
+        self.description = description
+        self.genre = genre
+

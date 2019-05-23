@@ -38,7 +38,7 @@ def select_all_movies(conn):
     movies = []
     for row in rows:
         print(row)
-        movies.append(movie(row))
+        movies.append(Movie(row))
 
     print(movies)
 
