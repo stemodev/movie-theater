@@ -1,11 +1,11 @@
 import json, requests,sqlite3
 
-connection = sqlite3.connect('../lahman2014.sqlite')
+connection = sqlite3.connect('../pythonsqlite.db')
 cursor = connection.cursor()
 
 movie_ids=["tt6139732", "tt1489887", "tt7752126"]
 
-insert = 'INSERT INTO movies VALUES (?,?,?)'
+insert = 'INSERT INTO movies(title, description, genre) VALUES (?,?,?)'
 
 url = "http://www.omdbapi.com/?s=inception&apikey=3800e6b5"
 headers = {'user-agent':'Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion'}
@@ -46,5 +46,11 @@ def main():
     select_movies()
     if(len(movie_ids) > 0):
         import_db()
+
+    select = '''SELECT * from movies'''
+    cursor.execute(select)
+    results = cursor.fetchall()
+    print(results)
+
 
 main()
